@@ -120,6 +120,7 @@ def _start_worker_thread(app,
         **kwargs)
 
     t = threading.Thread(target=worker.start)
+    t.daemon = True
     t.start()
     worker.ensure_started()
     _set_task_join_will_block(False)
